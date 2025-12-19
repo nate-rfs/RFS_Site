@@ -516,6 +516,22 @@ footer {
 }
 
 @media (max-width: 768px) {
+    body {
+        padding-top: 85px; /* Adjust for smaller header */
+    }
+
+    .logo img {
+        height: 50px; /* Smaller logo on mobile */
+    }
+
+    header {
+        padding: 0.5rem 0;
+    }
+
+    .hero::before {
+        background-size: contain; /* Fit image within the container */
+        background-position: center bottom; /* Position at bottom */
+    }
     .blog-layout {
         flex-direction: column;
     }
@@ -534,7 +550,7 @@ footer {
         width: 100%;
         background-color: #272727;
         position: absolute;
-        top: 115px;
+        top: 85px; /* Match new smaller header height */
         left: 0;
         padding: 1rem 0;
     }
