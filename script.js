@@ -49,8 +49,27 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    async function handleTypingAnimation() {
+        const subtitleElement = document.getElementById('typing-subtitle');
+        if (!subtitleElement) return;
+
+        const text = "The Offensive Edge in Cybersecurity";
+        const typingSpeed = 100;
+        const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+        // Type out the text
+        for (let i = 0; i <= text.length; i++) {
+            subtitleElement.textContent = text.substring(0, i);
+            await sleep(typingSpeed);
+        }
+
+        // Add class to hide cursor
+        subtitleElement.classList.add('typing-done');
+    }
+
     // --- INDEX PAGE LOGIC (runs only on the main page) ---
     if (document.querySelector('.hero')) {
+        handleTypingAnimation();
         const sections = document.querySelectorAll('.hero, section[id]');
         const navLinks = document.querySelectorAll('nav a');
 
