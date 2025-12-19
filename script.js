@@ -54,20 +54,35 @@ document.addEventListener('DOMContentLoaded', function() {
         const sections = document.querySelectorAll('.hero, section[id]');
         const navLinks = document.querySelectorAll('nav a');
 
-        // Fade animation observer
-        const fadeObserver = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    if (!entry.target.classList.contains('hero')) {
-                        entry.target.style.opacity = 1;
+        if (window.innerWidth > 768) {
+            // Fade animation observer
+            const fadeObserver = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        if (!entry.target.classList.contains('hero')) {
+                            entry.target.style.opacity = 1;
+                        }
+                    } else {
+                        if (!entry.target.classList.contains('hero')) {
+                            entry.target.style.opacity = 0;
+                        }
                     }
-                } else {
-                    if (!entry.target.classList.contains('hero')) {
-                        entry.target.style.opacity = 0;
-                    }
+                });
+            }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+
+            // Initial state setup for fade animation
+            sections.forEach((section, index) => {
+                if (index !== 0) {
+                    section.style.opacity = 0;
                 }
+                fadeObserver.observe(section);
             });
-        }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+        } else {
+            // On mobile, ensure all sections are visible without a fade effect
+            sections.forEach(section => {
+                section.style.opacity = 1;
+            });
+        }
 
         // Active link highlighting
         window.addEventListener('scroll', () => {
@@ -90,13 +105,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // Initial state setup
-        sections.forEach((section, index) => {
-            if (index !== 0) {
-                section.style.opacity = 0;
-            }
-            fadeObserver.observe(section);
-        });
 
         // Set initial active link
         const firstNavLink = document.querySelector('nav a[href="#home"]');
