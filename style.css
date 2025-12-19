@@ -1,6 +1,6 @@
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 115px; /* Final, correct offset for fixed header */
+    scroll-padding-top: 80px; /* Adjust for thinner header */
 }
 
 body {
@@ -10,13 +10,13 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    padding-top: 115px; /* Pushes content down to clear the fixed header */
+    padding-top: 80px; /* Adjust for thinner header */
 }
 
 header {
     background-color: #272727;
     color: #fafbf2;
-    padding: 1rem 0;
+    padding: 5px 0;
     position: fixed;
     width: 100%;
     top: 0;
@@ -36,7 +36,7 @@ nav ul {
 }
 
 .logo img {
-    height: 80px; /* Adjust as needed */
+    height: 70px; /* Adjust as needed */
 }
 
 nav ul {
@@ -46,6 +46,14 @@ nav ul {
 
 nav ul li {
     margin-left: 20px;
+}
+
+nav ul li:not(:last-child)::after {
+    content: '|';
+    margin-left: 20px;
+    color: #555; /* Subtle separator color */
+    display: inline-block;
+    transform: scaleY(1.8);
 }
 
 nav a {
