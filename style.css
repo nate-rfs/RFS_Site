@@ -529,7 +529,7 @@ footer {
     }
 
     .hero::before {
-        background-size: contain; /* Fit image within the container */
+        background-size: 120%; /* Slightly larger */
         background-position: center bottom; /* Position at bottom */
     }
     .blog-layout {
