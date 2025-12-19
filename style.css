@@ -122,6 +122,10 @@ section {
 }
 
 /* Target the first section in main, which is 'About Us' */
+main section:nth-of-type(even) {
+    background-color: #1a1a1a;
+}
+
 main section:first-of-type p {
     font-size: 1.2rem;
     text-align: center;
@@ -178,7 +182,7 @@ section#contact a:hover {
 
 .pricing-item {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background: #1a1a1a;
+    background: #272727;
     padding: 30px;
     border-radius: 5px;
     text-align: center;
@@ -247,7 +251,7 @@ section#contact a:hover {
 }
 
 #expertise .expertise-column ul li {
-    background: #1a1a1a;
+    background: #272727;
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 5px;
