@@ -57,11 +57,17 @@ document.addEventListener('DOMContentLoaded', function() {
         // Fade animation observer
         const fadeObserver = new IntersectionObserver(entries => {
             entries.forEach(entry => {
-                if (!entry.target.classList.contains('hero')) {
-                    entry.target.style.opacity = entry.intersectionRatio;
+                if (entry.isIntersecting) {
+                    if (!entry.target.classList.contains('hero')) {
+                        entry.target.style.opacity = 1;
+                    }
+                } else {
+                    if (!entry.target.classList.contains('hero')) {
+                        entry.target.style.opacity = 0;
+                    }
                 }
             });
-        }, { threshold: Array.from({ length: 101 }, (_, i) => i / 100) });
+        }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
 
         // Active link highlighting
         window.addEventListener('scroll', () => {
