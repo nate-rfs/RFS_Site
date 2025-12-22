@@ -1,5 +1,12 @@
 [
     {
+        "title": "The Importance of Penetration Testing",
+        "date": "December 22, 2025",
+        "author": "Nathan",
+        "summary": "A proactive approach to cybersecurity.",
+        "file": "penetration-testing.md"
+    },
+    {
         "title": "Understanding the Top 5 Web Application Vulnerabilities",
         "date": "December 19, 2025",
         "author": "Jane Doe",

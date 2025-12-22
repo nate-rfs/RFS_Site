@@ -73,7 +73,8 @@ nav a.active {
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    padding-top: 10vh;
     text-align: center;
     background-color: #000; /* Black background for the section */
     position: relative;
@@ -112,6 +113,10 @@ nav a.active {
     color: #fafbf2;
     margin-top: 0.2rem;
     font-weight: 700;
+}
+
+.hero .btn-quote {
+    margin-top: 4rem;
 }
 
 #typing-subtitle::after {
@@ -292,13 +297,13 @@ section#contact a:hover {
 }
 
 .btn-quote, .submit-btn, .btn-read-more {
-    color: #fafbf2;
+    color: #000;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 0;
     font-weight: bold;
     border: none;
     cursor: pointer;
-    background-image: linear-gradient(to right, #e62c30 0%, #b82428 51%, #e62c30 100%);
+    background-image: linear-gradient(to right, #d62828 0%, #a31b1f 51%, #d62828 100%);
     background-size: 200% auto;
     transition: background-position 0.5s ease;
 }
@@ -309,14 +314,14 @@ section#contact a:hover {
 
 .btn-quote {
     display: inline-block;
-    padding: 12px 24px;
+    padding: 14px 28px;
     margin-top: 20px;
 }
 
 .submit-btn {
     width: 100%;
     padding: 15px;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
 .pricing-item:hover {
@@ -421,7 +426,7 @@ footer {
 
 .btn-read-more {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 12px 24px;
 }
 
 
