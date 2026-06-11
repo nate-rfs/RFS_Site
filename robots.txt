@@ -1,0 +1,7 @@
+# Hello robots 👋
+# Thanks for stopping by
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.redforgesecurity.com/sitemap.xml
