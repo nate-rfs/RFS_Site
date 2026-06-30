@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penetration Testing Pricing | Red Forge Security</title>
+    <meta name="description" content="Transparent penetration testing pricing from Red Forge Security. Use our calculator to estimate your engagement cost. Discounts available for non-profits and educational organizations.">
+    <meta name="keywords" content="penetration testing cost, pen test pricing, how much does penetration testing cost, cybersecurity assessment cost Pennsylvania">
+    <link rel="canonical" href="https://www.redforgesecurity.com/pricing.html">
+    <meta property="og:title" content="Penetration Testing Pricing | Red Forge Security">
+    <meta property="og:description" content="Transparent, published rates for penetration testing. Estimate your engagement cost with our pricing calculator.">
+    <meta property="og:url" content="https://www.redforgesecurity.com/pricing.html">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="assets/new-logo-2025 (1).png" type="image/png">
+    <link rel="stylesheet" href="style.css?v=1.4">
+    <style>
+        .pricing-page-hero {
+            background-color: #000;
+            padding: 80px 0 60px;
+            text-align: center;
+            border-bottom: 2px solid #e62c30;
+        }
+        .pricing-page-hero h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3rem;
+            color: #fafbf2;
+            margin-bottom: 1rem;
+        }
+        .pricing-page-hero p {
+            font-size: 1.2rem;
+            color: #ccc;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* Rate cards */
+        .rates-section { padding: 60px 0; background-color: #1a1a1a; }
+        .rates-section h2 {
+            font-family: 'Oswald', sans-serif;
+            color: #e62c30;
+            font-size: 2rem;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .rate-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+        .rate-card {
+            background: #272727;
+            border: 1px solid #333;
+            border-top: 3px solid #e62c30;
+            border-radius: 5px;
+            padding: 30px;
+            text-align: center;
+        }
+        .rate-card h3 {
+            font-family: 'Oswald', sans-serif;
+            color: #e62c30;
+            font-size: 1.4rem;
+            margin-top: 0;
+        }
+        .rate-card .big-price {
+            font-size: 2.8rem;
+            font-weight: bold;
+            color: #fafbf2;
+            margin: 10px 0 4px;
+        }
+        .rate-card .price-sub {
+            font-size: 0.95rem;
+            color: #aaa;
+            margin-bottom: 16px;
+        }
+        .rate-card .addon {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #fafbf2;
+            margin: 12px 0 4px;
+        }
+        .rate-card p { font-size: 1rem; color: #ccc; }
+
+        /* Calculator */
+        .calculator-section {
+            background-color: #1a1a1a;
+            padding: 60px 0;
+        }
+        .calculator-section h2 {
+            font-family: 'Oswald', sans-serif;
+            color: #e62c30;
+            font-size: 2rem;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .calculator-section .calc-intro {
+            text-align: center;
+            color: #ccc;
+            margin-bottom: 40px;
+            font-size: 1rem;
+        }
+        .calculator {
+            background: #272727;
+            border: 1px solid #333;
+            border-radius: 5px;
+            padding: 40px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Field groups */
+        .calc-field { margin-bottom: 28px; }
+        .calc-field label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1rem;
+            color: #fafbf2;
+        }
+        .calc-field label span {
+            color: #aaa;
+            font-weight: normal;
+            font-size: 0.9rem;
+        }
+
+        /* Service selector */
+        .service-select {
+            width: 100%;
+            background: #1a1a1a;
+            border: 1px solid #444;
+            color: #fafbf2;
+            padding: 12px 14px;
+            font-size: 1rem;
+            border-radius: 4px;
+            appearance: none;
+            cursor: pointer;
+        }
+        .service-select:focus { outline: none; border-color: #e62c30; }
+
+        /* Week stepper */
+        .week-stepper {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            width: fit-content;
+        }
+        .week-stepper button {
+            background: #1a1a1a;
+            border: 1px solid #444;
+            color: #fafbf2;
+            width: 44px;
+            height: 44px;
+            font-size: 1.4rem;
+            cursor: pointer;
+            transition: background 0.2s;
+            line-height: 1;
+        }
+        .week-stepper button:first-child { border-radius: 4px 0 0 4px; }
+        .week-stepper button:last-child  { border-radius: 0 4px 4px 0; }
+        .week-stepper button:hover { background: #333; }
+        .week-stepper button:disabled { opacity: 0.3; cursor: not-allowed; }
+        .week-stepper #week-display {
+            background: #1a1a1a;
+            border-top: 1px solid #444;
+            border-bottom: 1px solid #444;
+            border-left: none;
+            border-right: none;
+            color: #fafbf2;
+            width: 60px;
+            height: 44px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            line-height: 44px;
+        }
+        .week-hint { margin-top: 8px; color: #888; font-size: 0.88rem; }
+
+        /* Org type toggle buttons */
+        .org-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .org-btn {
+            background: #1a1a1a;
+            border: 1px solid #444;
+            color: #ccc;
+            padding: 10px 20px;
+            font-size: 0.95rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Roboto', sans-serif;
+        }
+        .org-btn:hover { border-color: #e62c30; color: #fafbf2; }
+        .org-btn.active {
+            background: #e62c30;
+            border-color: #e62c30;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* Result box */
+        .calc-result {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-left: 4px solid #e62c30;
+            border-radius: 4px;
+            padding: 24px 28px;
+            margin-top: 32px;
+        }
+        .calc-result .result-label {
+            font-size: 0.9rem;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 6px;
+        }
+        .calc-result .result-service {
+            font-size: 1rem;
+            color: #ccc;
+            margin-bottom: 16px;
+        }
+        .result-line {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1rem;
+            color: #ccc;
+            margin-bottom: 8px;
+        }
+        .result-line.discount { color: #5cb85c; }
+        .result-divider {
+            border: none;
+            border-top: 1px solid #333;
+            margin: 12px 0;
+        }
+        .result-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        .result-total .total-label {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            color: #fafbf2;
+            text-transform: uppercase;
+        }
+        .result-total .total-amount {
+            font-size: 2.4rem;
+            font-weight: bold;
+            color: #fafbf2;
+        }
+        .result-note {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #888;
+        }
+        .calc-cta {
+            text-align: center;
+            margin-top: 28px;
+        }
+
+        /* Disclaimer */
+        .disclaimer-section { padding: 40px 0; }
+        .disclaimer-section p { color: #aaa; font-size: 0.95rem; text-align: center; max-width: 700px; margin: 0 auto 12px; }
+
+        .cta-section {
+            background-color: #1a1a1a;
+            padding: 60px 0;
+            text-align: center;
+            border-top: 2px solid #e62c30;
+        }
+        .cta-section h2 {
+            font-family: 'Oswald', sans-serif;
+            color: #fafbf2;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .calculator { padding: 24px 18px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <a href="/"><img src="assets/new-logo-2025 (1).png" alt="Red Forge Security Logo"></a>
+                </div>
+                <ul>
+                    <li><a href="/#about">About</a></li>
+                    <li><a href="/#expertise">Expertise</a></li>
+                    <li class="has-dropdown">
+                        <a href="/#services">Services</a>
+                        <ul class="dropdown">
+                            <li><a href="/network-penetration-testing.html">Network Penetration Testing</a></li>
+                            <li><a href="/web-application-penetration-testing.html">Web Application Security</a></li>
+                            <li><a href="/phishing-assessments.html">Phishing &amp; Social Engineering</a></li>
+                            <li><a href="/cloud-security-assessment.html">Cloud Security Assessment</a></li>
+                            <li><a href="/red-team-services.html">Red Teaming</a></li>
+                            <li><a href="/security-training-purple-teaming.html">Training / Purple Teaming</a></li>
+                            <li><a href="/pci-penetration-testing.html">PCI DSS Penetration Testing</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/pricing.html" class="active">Pricing</a></li>
+                    <li><a href="/#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="pricing-page-hero">
+        <div class="container">
+            <h1>Transparent Pricing</h1>
+            <p>We publish our rates so you can plan without surprises. Use the calculator below to estimate your engagement cost — no email required.</p>
+        </div>
+    </div>
+
+    <main>
+        <!-- Calculator -->
+        <section class="calculator-section">
+            <div class="container">
+                <h2>Estimate Your Engagement</h2>
+                <p class="calc-intro">This calculator covers weekly-rate engagements. Project-based and retainer pricing is scoped individually — <a href="/#contact" style="color:#e62c30;">contact us</a> for a custom quote.</p>
+
+                <div class="calculator">
+                    <div class="calc-field">
+                        <label>Number of Weeks <span>— not sure? We can advise during a free scoping call</span></label>
+                        <div class="week-stepper">
+                            <button id="week-down" onclick="changeWeeks(-1)">−</button>
+                            <div id="week-display">1</div>
+                            <button id="week-up" onclick="changeWeeks(1)">+</button>
+                        </div>
+                        <div class="week-hint" id="week-hint">1 week · $6,000 base</div>
+                    </div>
+
+                    <div class="calc-field">
+                        <label>Organization Type <span>— select if applicable for a 15% discount</span></label>
+                        <div class="org-buttons">
+                            <button class="org-btn active" id="btn-standard" onclick="setOrg('standard')">Standard</button>
+                            <button class="org-btn" id="btn-discount" onclick="setOrg('discount')">
+                                <i class="fas fa-hand-holding-heart"></i> Non-Profit / Educational Org
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="calc-result" id="calc-result">
+                        <div class="result-label">Estimate</div>
+                        <div class="result-service" id="result-service">1 week</div>
+                        <div class="result-line">
+                            <span>Week 1</span>
+                            <span>$6,000</span>
+                        </div>
+                        <div id="additional-weeks-line" style="display:none;" class="result-line">
+                            <span id="add-weeks-label">0 additional weeks</span>
+                            <span id="add-weeks-amount">$0</span>
+                        </div>
+                        <div id="discount-line" style="display:none;" class="result-line discount">
+                            <span id="discount-label">Non-Profit discount (15%)</span>
+                            <span id="discount-amount">−$0</span>
+                        </div>
+                        <hr class="result-divider">
+                        <div class="result-total">
+                            <span class="total-label">Estimated Total</span>
+                            <span class="total-amount" id="total-amount">$6,000</span>
+                        </div>
+                        <div class="result-note">This is an estimate based on standard weekly rates. Final pricing is confirmed during scoping. Discounts are applied at invoicing upon verification of status.</div>
+                    </div>
+
+                    <div class="calc-cta">
+                        <a href="/#contact" class="btn-quote">Get a Formal Quote</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Disclaimer -->
+        <section class="disclaimer-section">
+            <div class="container">
+                <p>All estimates are based on our standard weekly rate structure. Actual scope and duration are determined during a free pre-engagement scoping call. Red Forge Security reserves the right to confirm non-profit and educational status prior to applying discounts.</p>
+                <p>Have a fixed budget in mind? <a href="/#contact" style="color:#e62c30;">Contact us</a> — we'll work with you to scope an engagement that fits.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Red Forge Security. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        const RATE_WEEK1 = 6000;
+        const RATE_ADDITIONAL = 5500;
+        const DISCOUNT = 0.15;
+
+        let weeks = 1;
+        let orgType = 'standard';
+
+        function changeWeeks(delta) {
+            weeks = Math.max(1, Math.min(20, weeks + delta));
+            document.getElementById('week-down').disabled = weeks === 1;
+            document.getElementById('week-display').textContent = weeks;
+            const baseLabel = weeks === 1
+                ? '1 week · $6,000 base'
+                : `${weeks} weeks · $6,000 + ${weeks - 1} × $5,500`;
+            document.getElementById('week-hint').textContent = baseLabel;
+            updateResult();
+        }
+
+        function setOrg(type) {
+            orgType = type;
+            ['standard', 'discount'].forEach(t => {
+                document.getElementById('btn-' + t).classList.toggle('active', t === type);
+            });
+            updateResult();
+        }
+
+        function fmt(n) {
+            return '$' + n.toLocaleString('en-US');
+        }
+
+        function updateResult() {
+            const base = RATE_WEEK1 + (weeks - 1) * RATE_ADDITIONAL;
+            const discountAmount = orgType === 'discount' ? Math.round(base * DISCOUNT) : 0;
+            const total = base - discountAmount;
+
+            document.getElementById('result-service').textContent =
+                weeks + (weeks === 1 ? ' week' : ' weeks');
+
+            // Additional weeks row
+            const addLine = document.getElementById('additional-weeks-line');
+            if (weeks > 1) {
+                addLine.style.display = 'flex';
+                document.getElementById('add-weeks-label').textContent =
+                    (weeks - 1) + ' additional ' + (weeks === 2 ? 'week' : 'weeks');
+                document.getElementById('add-weeks-amount').textContent =
+                    fmt((weeks - 1) * RATE_ADDITIONAL);
+            } else {
+                addLine.style.display = 'none';
+            }
+
+            // Discount row
+            const discLine = document.getElementById('discount-line');
+            if (discountAmount > 0) {
+                discLine.style.display = 'flex';
+                document.getElementById('discount-label').textContent = 'Non-Profit / Educational discount (15%)';
+                document.getElementById('discount-amount').textContent = '−' + fmt(discountAmount);
+            } else {
+                discLine.style.display = 'none';
+            }
+
+            document.getElementById('total-amount').textContent = fmt(total);
+        }
+
+        // Init
+        document.getElementById('week-down').disabled = true;
+        updateResult();
+    </script>
+</body>
+</html>

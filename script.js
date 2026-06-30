@@ -132,12 +132,27 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Contact form submission
-        const contactForm = document.querySelector('.contact-form');
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formContainer = document.querySelector('#contact .container');
-            formContainer.innerHTML = '<h2>Thank You!</h2><p>Your message has been sent. We will get back to you shortly.</p>';
-        });
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const btn = contactForm.querySelector('.submit-btn');
+                btn.textContent = 'Sending...';
+                btn.disabled = true;
+                const res = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: new FormData(contactForm)
+                });
+                if (res.ok) {
+                    contactForm.style.display = 'none';
+                    document.getElementById('form-success').style.display = 'block';
+                } else {
+                    btn.textContent = 'Send Message';
+                    btn.disabled = false;
+                    alert('Something went wrong. Please email us directly at info@redforgesecurity.com');
+                }
+            });
+        }
     }
 
     // --- GLOBAL LOGIC (runs on all pages) ---
@@ -153,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     const hamburger = document.querySelector('.hamburger-menu');
-    const navMenu = document.querySelector('nav ul');
+    const navMenu = document.querySelector('nav > .container > ul');
     const allNavLinks = document.querySelectorAll('nav a');
 
     if (hamburger && navMenu) {
